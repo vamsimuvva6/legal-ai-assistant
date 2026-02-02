@@ -38,15 +38,6 @@ st.markdown("""
     margin-bottom: 1.6rem;
 }
 
-/* Cards */
-.card {
-    background: white;
-    padding: 1.5rem 1.7rem;
-    border-radius: 14px;
-    border: 1px solid #bbf7d0;
-    margin-bottom: 1.3rem;
-}
-
 /* Section titles */
 .section-title {
     font-size: 1.15rem;
