@@ -1,6 +1,23 @@
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
+import io
+
+def generate_pdf(text):
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(buffer)
+    styles = getSampleStyleSheet()
+
+    story = [Paragraph(text, styles["Normal"])]
+    doc.build(story)
+
+    buffer.seek(0)
+    return buffer
+
+
+
 def generate_pdf(summary_text, output_path="contract_summary.pdf"):
     c = canvas.Canvas(output_path, pagesize=A4)
     width, height = A4
