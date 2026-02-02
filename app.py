@@ -23,7 +23,7 @@ st.markdown("""
 
 /* Background */
 .stApp {
-    background-color: #00b4d8;
+    background-color: #90e0ef;
 }
 
 /* Header */
@@ -34,7 +34,7 @@ st.markdown("""
 }
 
 .app-subtitle {
-    color: #3cc5a1;
+    color: #ffffff;
     margin-bottom: 1.6rem;
 }
 
