@@ -101,7 +101,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -------------------------------------------------
-# Utility Functions (UNCHANGED)
+# Utility Functions
 # -------------------------------------------------
 def extract_text(uploaded_file):
     suffix = os.path.splitext(uploaded_file.name)[1]
@@ -252,6 +252,25 @@ if uploaded_file:
             st.markdown('<span class="badge-medium">MEDIUM</span>', unsafe_allow_html=True)
         else:
             st.markdown('<span class="badge-high">HIGH</span>', unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # -------------------------------------------------
+    # KEY CLAUSES (✅ FIXED & ADDED)
+    # -------------------------------------------------
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown('<div class="section-title">Key Contract Clauses</div>', unsafe_allow_html=True)
+
+    if clauses:
+        for i, clause in enumerate(clauses, start=1):
+            with st.expander(f"Clause {i}"):
+                st.write(clause)
+                st.markdown(
+                    f"<div class='small-muted'><b>Plain English:</b> {explain_clause_plainly(clause)}</div>",
+                    unsafe_allow_html=True
+                )
+    else:
+        st.write("No major clauses detected.")
 
     st.markdown('</div>', unsafe_allow_html=True)
 
