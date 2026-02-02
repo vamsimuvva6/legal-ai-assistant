@@ -40,6 +40,16 @@ st.markdown("""
     margin-bottom: 1.6rem;
 }
 
+/* Card */
+.card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #D9EAF2;
+    box-shadow: 0 8px 20px rgba(15, 76, 129, 0.08);
+}
+
 /* Section titles */
 .section-title {
     font-size: 1.15rem;
@@ -246,13 +256,18 @@ if uploaded_file:
     st.markdown('</div>', unsafe_allow_html=True)
 
     # -------------------------------------------------
-    # PDF EXPORT
+    # PDF EXPORT (DOWNLOAD)
     # -------------------------------------------------
     st.markdown('<div class="card">', unsafe_allow_html=True)
 
-    if st.button("📄 Export Legal Summary (PDF)"):
-        summary_text = build_summary(st.session_state["analysis_result"])
-        generate_pdf(summary_text)
-        st.success("PDF generated successfully")
+    summary_text = build_summary(st.session_state["analysis_result"])
+    pdf_bytes = generate_pdf(summary_text)
+
+    st.download_button(
+        label="📄 Download Legal Summary (PDF)",
+        data=pdf_bytes,
+        file_name="legal_summary.pdf",
+        mime="application/pdf"
+    )
 
     st.markdown('</div>', unsafe_allow_html=True)
