@@ -23,7 +23,7 @@ st.markdown("""
 
 /* Background */
 .stApp {
-    background-color: #000000;
+    background-color: #00b4d8;
 }
 
 /* Header */
